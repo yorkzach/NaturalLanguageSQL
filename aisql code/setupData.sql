@@ -1,49 +1,40 @@
-INSERT INTO person (person_id, name) VALUES
-(1, 'Laura Stevenson'),
-(2, 'Bob Jones'),
-(3, 'Charlie Brown'),
-(4, 'Jimmy Hendricks'),
-(5, 'Sydney Smith'),
-(6, 'Jordan Malone');
+-- Insert data into Locations table
+INSERT INTO Locations (location, total_earnings, recent_earnings) 
+VALUES 
+('New York', 10000.00, 1500.00),
+('Los Angeles', 8500.00, 1200.00),
+('Chicago', 9200.00, 1300.00);
 
-INSERT INTO phone (phone_id, person_id, area_code, number, can_recieve_sms) VALUES
-(1, 1, 123, 4567890, 1),
-(2, 2, 234, 5678901, 0),
-(3, 3, 345, 6789012, 1),
-(4, 3, 345, 6789013, 0);
+-- Insert data into Machines table
+INSERT INTO Machines (location_id, total_earnings, recent_earnings)
+VALUES
+(1, 4000.00, 600.00),
+(1, 3500.00, 500.00),
+(2, 3000.00, 400.00),
+(3, 3500.00, 600.00);
 
-INSERT INTO address (address_id, person_id, street, zip) VALUES
-(1, 1, '123 Maple Street', 10001),
-(2, 2, '456 Oak Road', 20002),
-(3, 3, '789 Pine Avenue', 30003),
-(4, 4, '119 3rd Street', 84604),
-(5, 5, '121 3rd Street', 84604),
-(6, 6, '123 3rd Street', 84604);
+-- Insert data into Products table
+INSERT INTO Products (cost, price)
+VALUES
+(2.50, 5.00),
+(1.75, 4.00),
+(3.00, 6.50);
 
-INSERT INTO zip (zip, city, state_two_letter_code) VALUES
-(10001, 'New York', 'NY'),
-(20002, 'Washington', 'DC'),
-(30003, 'Los Angeles', 'CA'),
-(84604, 'Provo', 'UT');
+-- Insert data into Inventory table
+INSERT INTO Inventory (machine_id, product_id, items_left)
+VALUES
+(1, 1, 20),
+(1, 2, 15),
+(2, 1, 25),
+(2, 3, 10),
+(3, 2, 18),
+(4, 3, 22);
 
-INSERT INTO dog (dog_id, name, breed, birth_date) VALUES
-(1, 'Buddy', 'Golden Retriever', '2018-06-01'),
-(2, 'Max', 'Labrador Retriever', '2019-07-15'),
-(3, 'Bella', 'Poodle', '2017-08-30'),
-(4, 'Rufus', 'Collie', '2017-08-30'),
-(5, 'Rex', 'Corgi', '2017-08-30');
-
-INSERT INTO award (award_id, dog_id, event_date, award_name) VALUES
-(1, 1, '2021-09-20', 'Best in Show'),
-(2, 1, '2020-05-10', 'Top Agility'),
-(3, 3, '2021-11-05', 'Best Obedience');
-
-
-INSERT INTO person_dog (dog_id, person_id) VALUES
-(1, 1),
-(2, 1),
-(3, 2),
-(4, 5),
-(5, 5),
-(5, 1),
-(4, 1);
+-- Insert data into Transactions table
+INSERT INTO Transactions (location_id, machine_id, product_id, transaction_time)
+VALUES
+(1, 1, 1, '2024-05-08 08:30:00'),
+(1, 1, 1, '2024-05-08 12:15:00'),
+(2, 2, 3, '2024-05-08 10:45:00'),
+(3, 4, 3, '2024-05-08 09:20:00'),
+(3, 4, 3, '2024-05-08 13:55:00');
