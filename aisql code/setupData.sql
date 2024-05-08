@@ -1,5 +1,5 @@
 -- Insert data into Locations table
-INSERT INTO Locations (location, total_earnings, recent_earnings) 
+INSERT INTO Locations (location_name, total_earnings, recent_earnings) 
 VALUES 
 ('New York', 10000.00, 1500.00),
 ('Los Angeles', 8500.00, 1200.00),
