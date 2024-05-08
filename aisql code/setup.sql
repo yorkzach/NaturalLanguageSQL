@@ -96,7 +96,7 @@
 -- SQLlite
 CREATE TABLE Locations (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  location TEXT NOT NULL,
+  location_name TEXT NOT NULL,
   total_earnings NUMERIC(9,2),
   recent_earnings NUMERIC(9,2)
 );
