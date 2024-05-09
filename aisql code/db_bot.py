@@ -67,21 +67,25 @@ def getChatGptResponse(content):
 commonSqlOnlyRequest = " Give me a sqlite select statement that answers the question. Only respond with sqlite syntax. If there is an error do not expalin it!"
 strategies = {
     "zero_shot": setupSqlScript + commonSqlOnlyRequest,
+    # "single_domain_double_shot": (setupSqlScript + 
+    #                " Who doesn't have a way for us to text them? " + 
+    #                " \nSELECT p.person_id, p.name\nFROM person p\nLEFT JOIN phone ph ON p.person_id = ph.person_id AND ph.can_recieve_sms = 1\nWHERE ph.phone_id IS NULL;\n " +
+    #                commonSqlOnlyRequest)
     "single_domain_double_shot": (setupSqlScript + 
-                   " Who doesn't have a way for us to text them? " + 
-                   " \nSELECT p.person_id, p.name\nFROM person p\nLEFT JOIN phone ph ON p.person_id = ph.person_id AND ph.can_recieve_sms = 1\nWHERE ph.phone_id IS NULL;\n " +
+                   " Which locations have the highest total earnings? " + 
+                   " \nSELECT location_name, total_earnings\nFROM Locations\nWHERE total_earnings = (\nSELECT MAX(total_earnings)\nFROM Locations\n);\n " +
                    commonSqlOnlyRequest)
 }
 
 questions = [
-    "Which are the most awarded dogs?",
-    "Which dogs have multiple owners?",
-    "Which people have multiple dogs?",
-    "What are the top 3 cities represented?",
-    "What are the names and cities of the dogs who have awards?",
-    "Who has more than one phone number?",
-    "Who doesn't have a way for us to text them?",
-    "Will we have a problem texting any of the previous award winners?"
+    "Which locations have the highest total earnings?"
+    "Which machines have the highest recent earnings?"
+    "Which products have the highest price?"
+    "Which machines have the lowest number of items left in inventory?"
+    "Which transactions occurred in New York?"
+    "Which transactions occurred within a specific time range?"
+    "Which products have the highest profit margin?"
+    "Which machines are located in Chicago?"
     # "I need insert sql into my tables can you provide good unique data?"
 ]
 
