@@ -49,7 +49,7 @@ openAiClient = OpenAI(
 
 def getChatGptResponse(content):
     stream = openAiClient.chat.completions.create(
-        model="gpt-4-1106-preview",
+        model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": content}],
         stream=True,
     )
@@ -78,13 +78,13 @@ strategies = {
 }
 
 questions = [
-    "Which locations have the highest total earnings?"
-    "Which machines have the highest recent earnings?"
-    "Which products have the highest price?"
-    "Which machines have the lowest number of items left in inventory?"
-    "Which transactions occurred in New York?"
-    "Which transactions occurred within a specific time range?"
-    "Which products have the highest profit margin?"
+    "Which locations have the highest total earnings?",
+    "Which machines have the highest recent earnings?",
+    "Which products have the highest price?",
+    "Which machines have the lowest number of items left in inventory?",
+    "Which transactions occurred in New York?",
+    "Which transactions occurred within a specific time range?",
+    "Which products have the highest profit margin?",
     "Which machines are located in Chicago?"
     # "I need insert sql into my tables can you provide good unique data?"
 ]

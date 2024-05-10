@@ -1,4 +1,4 @@
-# Dog Show
+<!-- # Dog Show
 
 My project models data that someone running a dog show might find useful. Includes contact information about people and relevant information about the dogs.
 
@@ -67,6 +67,52 @@ The multi-shot prompt made it worse for this question. In both cases (single and
 
 ## Conclusion
 My findings is that for fairly simple joins chatgpt 4 preview does well at creating SQL queries. This could be useful for data engineers. Actually having a chat interface for non-engineers has issues and could give completely inaccurate answers.
+ -->
+
+
+My project models how a vending company might set up a database. This database is capable of tracking purchases and evaluating income in each machine at various locations. 
 
 
 
+<img src="schema.png">
+
+
+
+## Query I thought it did well on
+
+**Question**: Which machines have the lowest number of items left in inventory?
+
+**GPT SQL Response**:
+```sql
+SELECT machine_id 
+FROM Inventory 
+GROUP BY machine_id 
+ORDER BY items_left 
+LIMIT 1;
+```
+
+**Friendly Response**: "Machine 3 has the lowest number of items left in inventory."
+
+
+
+
+## Question that it tripped up on
+It would return varying answers which tells me that the interpretation of my question was a littl ambiguous
+
+"Which products have the highest profit margin?"
+
+**GPT SQL Response**:
+```sql
+SELECT id, cost, price
+FROM Products
+WHERE price - cost = (SELECT MAX(price - cost) FROM Products);
+```
+
+SQL Result is :[(3, 3, 6.5)]
+
+**Friendly response**:"The products with the highest profit margin are items that yield a profit margin of 6.5%."
+
+The basic natue of this question would lead me to believe that the AI should get it right every time. I think that I might need to revise my example question that the model bases it's quereys on. 
+
+## Conclusion
+This is an impressive use of AI and something that is actually useful that is could use in my life. I hope that ill have more time to play around with it and implement it in both personal and pofessional projects!
